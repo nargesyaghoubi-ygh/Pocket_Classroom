@@ -1,69 +1,183 @@
-body{
+body {
     background-color: #1b1f22;
- 
-
-}
-.nav{
-    background-color: #753ce6;
 }
 
-
-.logo {
-width: 120px;
-transition: transform 0.3s ease;
-}
-.logo.active {
-animation: pulse 1s infinite;
-}
-@keyframes pulse {
-0% { transform: scale(1); }
-50% { transform: scale(1.2); }
-100% { transform: scale(1); }
+.nav {
+    background-color: #8155e9;
 }
 
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #fff;               
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-decoration: none;     
+    cursor: default;           
+    transition: none;         
+}
+
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Navbar logo */
+#logo {
+    height: 70px;           
+    width: auto;            
+    margin-right: 0.5rem;   
+    border-radius: 8px;  
+}
+
+
+#logo:hover {
+    transform: scale(1.05);
+}
+
+/* Navbar buttons */
+.btn-check + label.btn {
+    color: #f8f9fa; 
+    background-color: #6c5ce7;
+    border: 2px solid #ffffff50;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-check:checked + label.btn {
+    background-color: #d0a7ff; 
+    color: #2d3436; 
+    border-color: #fff;
+}
+
+/* hover */
+.btn-check + label.btn:hover {
+    background-color: #a29bfe;
+    transform: scale(1.05);
+}
+
+
+/* Section default hidden */
 section {
-    display: none; 
+    display: none;
     padding: 2rem;
-  }
-  
-  section.active {
-    display: block;
-  }
+}
 
-  .card {
+section.active {
+    display: block;
+}
+
+/* Card styling */
+.card {
     border-radius: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  }
-  
-  .btn {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Button styling */
+.btn {
     border-radius: 20px;
     font-size: 0.9rem;
-  }
+}
 
-  #library p {
+/* Section paragraph style */
+#library p,
+#learn p,
+#author p {
     font-style: italic;
     color: #6c757d;
-  }
+}
 
-  .capsule{
-    border-radius: 20px
-  }
+/* Capsule container */
+.capsule {
+    border-radius: 20px;
+}
 
-  ::placeholder {
-    color: #aaa !important; 
+/* Placeholder styling */
+::placeholder {
+    color: #aaa !important;
     opacity: 1;
-  }
-  
-  ::-webkit-input-placeholder { color: #aaa !important; opacity: 1; }
-  :-moz-placeholder { color: #aaa !important; opacity: 1; }
-  ::-moz-placeholder { color: #aaa !important; opacity: 1; }
-  :-ms-input-placeholder { color: #aaa !important; opacity: 1; }
+}
 
-  .progress{
-    background: linear-gradient(90deg,rgba(125, 178, 240, 1) 0%, rgba(119, 119, 242, 1) 35%, rgba(237, 135, 179, 1) 100%);
-  }
+::-webkit-input-placeholder {
+    color: #aaa !important;
+    opacity: 1;
+}
+
+:-moz-placeholder {
+    color: #aaa !important;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #aaa !important;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #aaa !important;
+    opacity: 1;
+}
+
+/* Progress bar gradient */
+.progress-bar {
+    background: linear-gradient(90deg, rgba(125, 178, 240, 1) 0%, rgba(119, 119, 242, 1) 35%, rgba(237, 135, 179, 1) 100%);
+}
+
+/* Flashcard container */
+#flashBox {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+/* Flashcard inner (3D flip) */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Flashcard faces */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid #0dcaf0;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+.card-back {
+    background-color: #0dcaf0;
+    color: #212529;
+    transform: rotateY(180deg);
+}
